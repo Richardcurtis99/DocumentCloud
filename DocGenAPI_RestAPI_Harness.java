@@ -61,11 +61,12 @@ public class DocGenAPI_RestAPI_HSBC_Harness  {
 	// Standard Vars
 	
     static String json = "{\n  \"mediaType\": \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\"\n}";
-	static String bearer_token = "Bearer eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE2NzI5MTczODc5MjRfYWM2NDE0MjQtY2I0NS00NWQ0LTk0OWYtNDEzYTk2NzMwMDA3X3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJjYjBkNWI0OGVjZDM0N2Y0YjNmY2IwMGMwNDgyNjA5NCIsInVzZXJfaWQiOiI4NzY3NkFCODYzOEUyRTNEMEE0OTVFMjNAdGVjaGFjY3QuYWRvYmUuY29tIiwiYXMiOiJpbXMtbmExIiwiYWFfaWQiOiI4NzY3NkFCODYzOEUyRTNEMEE0OTVFMjNAdGVjaGFjY3QuYWRvYmUuY29tIiwiY3RwIjowLCJmZyI6IlhDWU1JRTdHRlBFNUlYVUtNTVFWWkhZQUdNPT09PT09IiwibW9pIjoiYmI3ZGU0MzUiLCJleHBpcmVzX2luIjoiODY0MDAwMDAiLCJjcmVhdGVkX2F0IjoiMTY3MjkxNzM4NzkyNCIsInNjb3BlIjoib3BlbmlkLERDQVBJLEFkb2JlSUQsYWRkaXRpb25hbF9pbmZvLm9wdGlvbmFsQWdyZWVtZW50cyJ9.HcIM-b05P8uw0S4g9qmvhXtt0CPR8ZounFl8yST7W2eMQ48-Drk6gD4UGcj5sgaJ03GY_iZXpWJLS0ZmLbh--dRx2ss6pcho8lGN62Pu98p53bIx6C_xsIYZs9Xo1QYjUhN4uUyb51LzuIPrpdEl82IpJvq8_BVMhYc4Eht84_av6oljdFweBwlS24OTPURkZtjGAynkF_jirkEejxGoQ6VM5MHysEoaPpAWKfud9yEhVmM1AFkThB2_Aizd1HBJc5FzOEbNxyUg9QXBKByfpDehkR1ikFNVF0ZNF11dN-pFvrgp_xKTZypWzugn3swh2AD5GiCAQsiC41II1C7R7Q";
-	static String x_api_key = "cb0d5b48ecd347f4b3fcb00c04826094";
+	static String bearer_token = "Bearer {Bearer token}";
+	static String x_api_key = "{Client ID}";
 	static String content_type = "application/json";
 	
-	// create the POST request for get pre-signed URL for upload
+	// create the POST request for get pre-signed URL for upload. 
+	// N.B. Storage for the document (if not changing should be in a seperate code fragment). If the document template is changing lots, then should be in the main line.
 	
 	public static String Get_Pre_signedURL_for_DocTemplate() throws IOException {
 		
@@ -211,8 +212,8 @@ public class DocGenAPI_RestAPI_HSBC_Harness  {
 		
 		try {
 		    conn =
-		       DriverManager.getConnection("jdbc:mysql://localhost:3306/RC_schema?" +
-		                                   "user=root&password={PWD}");
+		       DriverManager.getConnection("jdbc:mysql://localhost:3306/{Schema}?" +
+		                                   "user={MYSQL User}}&password={PWD}");
 
 		    // Do something with the Connection
 
